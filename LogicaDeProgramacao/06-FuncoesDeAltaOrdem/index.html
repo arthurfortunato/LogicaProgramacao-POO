@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funções de Alta Ordem</title>
+</head>
+
+<body>
+  <h1>Funções de Alta Ordem</h1>
+
+  <p>
+    Em JavaScript, funções são cidadãos de primeira classe. O que significa que podem ser tratados como valores e salvo
+    em variável. Portanto, naturalmente funções também podem ser passadas como parâmetro para uma função. Em resumo, uma
+    função de alta ordem é uma função que recebe ou retorna uma função.
+  </p>
+
+  <div>
+    <h2>Recebendo uma Função como Parâmetro</h2>
+
+    <pre>
+      <code>
+        const somar = (a, b) => a + b;
+        const subtrair = (a, b) => a - b;
+        const aplicarOperacao = (a, b, operacao) => operacao(a,b);
+
+        const resultado1  = aplicarOperacao(1,2,somar);
+        const resultado2 = aplicarOperacao(1,2,subtrair); 
+      </code>
+    </pre>
+
+    <p>
+      No código acima declaramos três funções, somar, subtrair e aplicarOperacao. As duas primeiras recebem dois
+      parâmetros e devolvem um valor. A aplicarOperacao recebe três parâmetros, sendo o terceiro uma função a ser
+      aplicada passando os dois primeiros parâmetros. Nas linhas 5 e 6 são passados, respectivamente, as funções somar e
+      subtrair.
+    </p>
+  </div>
+
+  <div>
+    <h2>Retornando Funções</h2>
+
+    <p>
+      Nós podemos retornar funções como uma forma de construir abstrações mais complexas, onde uma função é um geradora
+      de funções. No exemplo a seguir, temos a função somarX, que recebe x de parâmetro e retorna uma função que recebe
+      y e retorna x+y. Note que ao passar 1 para somarX, criamos uma função que soma 1. E assim sucessivamente.
+    </p>
+
+    <pre>
+      <code>
+        const somarX = (x) => (y) => x + y;
+
+        const somar1 = somarX(1);
+        const somar2 = somarX(2);
+        const somar3 = somarX(3);
+      </code>
+    </pre>
+  </div>
+</body>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #37373c;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e1e1e1;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  p {
+    width: 50%;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 10px;
+    text-align: justify;
+  }
+
+  pre {
+    background: #26262a;
+    padding: 10px 50px 0 0;
+    font-size: 1rem;
+  }
+</style>
+
+</html>
