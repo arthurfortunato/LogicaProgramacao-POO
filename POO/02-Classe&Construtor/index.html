@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <title>Classe e Construtor</title>
+</head>
+
+<body>
+  <header>
+    <h1>Classe e Construtor</h1>
+  </header>
+  <main>
+    <section id="classeConstrutor" class="section section__classeConstrutor">
+      <p>
+        Classes são a forma de definir as entidades no nosso sistema. Elas são estruturas capazes de dar origem a
+        infinitos objetos de mesmo tipo.
+        <br />
+        <br />
+        Para criar uma classe usamos o comando class no JavaScript.
+      </p>
+
+      <pre>
+        <code>
+          class < nomedaclasse > {
+
+          }
+        </code>
+      </pre>
+
+      <p>
+        O aspecto mais relevante de uma classe é o método construtor, onde indicaremos quais são os atributos que a
+        classe possui e quais são os valores necessários que precisam ser definidos no momento da criação do objeto.
+        <br />
+        <br />
+        A classe é semelhante a uma "planta baixa" que determina a estrutura e os comportamentos dos objetos criados por
+        ela. Uma classe Pessoa pode indicar que todo objeto tenha um nome, mas não pode indicar qual é esse nome, pois
+        ele será diferente para cada objeto Pessoa criado por ela.
+        <br />
+        <br />
+        Para criar a classe Pessoa, com nome e idade, as informações necessárias devem ser passadas por parâmetros no
+        construtor e atribuída em atributos precedidos por this. :
+        <br />
+      </p>
+
+      <pre>
+        <code>
+          class Pessoa {
+            constructor(nome, idade){
+                this.nome = nome;
+                this.idade = idade;
+            }
+          }
+        </code>
+      </pre>
+
+      <p>Para criar um objeto do tipo Pessoa faremos:</p>
+
+      <pre>
+        <code>
+          const pessoa2 = new Pessoa('Marta', 26);
+          console.log(pessoa2); 
+          //Veremos no console:
+          //Pessoa { nome: 'Marta', idade: 26 }
+        </code>
+      </pre>
+
+      <p>
+        É muito recomendado sempre iniciar nomes de classes com letra maiúscula. Além de manter o código mais
+        organizado, facilita a leitura e entendimento uma vez que cria uma distinção clara entre as classes e variáveis.
+      </p>
+    </section>
+  </main>
+</body>
+
+</html>
